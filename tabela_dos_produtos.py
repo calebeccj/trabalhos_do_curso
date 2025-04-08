@@ -19,7 +19,7 @@ def main():
              if produto == " " or quantidade == 0:
               print("\n=====Nenhum produto cadastrado.=====\n")
              else:
-              print("\nPreoduto cadastrado: ", produto)
+              print("\nProduto cadastrado: ", produto)
               print("Unidade(s): ", quantidade)
         
 
