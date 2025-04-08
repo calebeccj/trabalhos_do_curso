@@ -1,6 +1,6 @@
 def main():
     opcao = 0
-    produto = " "
+    produto = []
 
     while True:
         print("\n=======MENU=======\n")
@@ -11,19 +11,19 @@ def main():
         opcao = int(input("Digite uma opção: "))
         
         if opcao == 1:
-            produto = input("\nDigite o nome do produto: ")
-            quantidade = int(input("DIgite a quantidade do produto: "))
-            print("\n=====Produto cadastrado com sucesso!=====\n")
+            nome = input("\nDigite o nome do produto: ")
+            try:
+               quantidade = int(input("DIgite a quantidade do produto: "))
+               produto.append({"Produto": nome, "Unidade(s)": quantidade})
+               print(f"\n=====Produto '{nome}' cadastrado com sucesso!=====\n")
+            except ValueError:
+               print("\nNenhum produto foi cadastrado.")   
         
         elif opcao == 2:
-             if produto == " " or quantidade == 0:
-              print("\n=====Nenhum produto cadastrado.=====\n")
-             else:
-              print("\nProduto cadastrado: ", produto)
-              print("Unidade(s): ", quantidade)
-        
-
-        
+             print("\nLista de Produtos:")
+             for i, produto in enumerate(produto):
+                print(f"{i + 1}. Nome: {produto['Produto']}, Unidade(s): {produto['Unidade(s)']}")
+    
         if opcao == 3:
             print("\n=====Encerrando o sistema...=====")
             break
